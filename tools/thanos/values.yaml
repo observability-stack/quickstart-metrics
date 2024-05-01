@@ -1,0 +1,75 @@
+clusterDomain: observer.local # this is kubernetes.local by default. if you changed the domain name during the cluster deploy, set this field to match that.
+objstoreConfig: |-
+  type: s3
+  config:
+    bucket: thanos
+    endpoint: {{ include "thanos.minio.fullname" . }}.{{ .Release.Namespace }}.svc.observer.local:9000
+    access_key: minio
+    secret_key: minio123
+    insecure: true
+minio:
+  enabled: true # integrated minio S3 storage for Thanos
+  auth:
+    rootPassword: minioadmin 
+    rootUser: admin
+  defaultBuckets: thanos
+  monitoringBuckets: thanos
+  accessKey:
+    password: vznOaT8rkdZfqW0mfkbz
+  secretKey:
+    password: Vq4c6ceAXp5FNzjyzPbd41pJI0N7XnficYdvC4mZ
+query:
+  enabled: true
+  replicaLabel:
+    - "prometheus_replica"
+    - "rule_replica"
+  dnsDiscovery:
+    sidecarsService: "prometheus-operated"
+    sidecarsNamespace: "cattle-monitoring-system"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)
+  nodeSelector: "kubernetes.io/os: linux"
+  serviceAccount:
+    create: true
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPU: 90
+queryFrontend:
+  enabled: true
+  # nodeSelector: "kubernetes.io/os: linux"
+  # podSecurityContext:
+  #   enabled: false
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPU: 90
+compactor:
+  enabled: true
+  nodeSelector: "kubernetes.io/os: linux"
+  # podSecurityContext:
+  #   enabled: false
+storegateway:
+  enabled: true
+  nodeSelector: "kubernetes.io/os: linux"
+  # podSecurityContext:
+  #   enabled: false
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPU: 90
+# receive:
+#   enabled: true
+#   autoscaling:
+#     enabled: true
+#     minReplicas: 1
+#     maxReplicas: 10
+#     targetCPU: 90
+metrics:
+  enabled: true # enable for thanos metrics monitoring.
+  serviceMonitor:
+    enabled: true # serviceMonitor for Prometheus
+    namespace: "thanos-system" # for rancher-monitoring prometheus deployments, you can use cattle-monitoring-system namespace
+networkPolicy:
+  enabled: false
