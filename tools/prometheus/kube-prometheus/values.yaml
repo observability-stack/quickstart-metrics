@@ -1,0 +1,19 @@
+nameOverride: prometheus-monitoring
+namespaceOverride: thanos-monitoring
+global:
+  rbac:
+    create: true
+    userRoles:
+      aggregateToDefaultRoles: true
+      create: true
+  seLinux:
+    enabled: false
+prometheus:
+  prometheusSpec:
+    externalLabels:
+      clusterName: "${ .ClusterName }"
+    thanos:
+      image: quay.io/thanos/thanos:v0.34.0
+      objectStorageConfig:
+        key: thanos.yaml
+        name: thanos-objectstorage
