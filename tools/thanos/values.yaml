@@ -21,7 +21,7 @@ query:
     - "rule_replica"
   dnsDiscovery:
     sidecarsService: "prometheus-operated"
-    sidecarsNamespace: "cattle-monitoring-system"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)
+    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)
   nodeSelector: "kubernetes.io/os: linux"
   serviceAccount:
     create: true
