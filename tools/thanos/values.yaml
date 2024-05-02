@@ -1,11 +1,11 @@
-clusterDomain: observer.local # this is kubernetes.local by default. if you changed the domain name during the cluster deploy, set this field to match that.
+clusterDomain: kubernetes.local # this is kubernetes.local by default. if you changed the domain name during the cluster deploy, set this field to match that.
 objstoreConfig: |-
   type: s3
   config:
     bucket: thanos
-    endpoint: {{ include "thanos.minio.fullname" . }}.{{ .Release.Namespace }}.svc.observer.local:9000
-    access_key: minio
-    secret_key: minio123
+    endpoint: {{ include "thanos.minio.fullname" . }}.{{ .Release.Namespace }}.svc:9000
+    access_key: admin
+    secret_key: minioadmin
     insecure: true
 minio:
   enabled: true # integrated minio S3 storage for Thanos
@@ -14,10 +14,6 @@ minio:
     rootUser: admin
   defaultBuckets: thanos
   monitoringBuckets: thanos
-  accessKey:
-    password: vznOaT8rkdZfqW0mfkbz
-  secretKey:
-    password: Vq4c6ceAXp5FNzjyzPbd41pJI0N7XnficYdvC4mZ
 query:
   enabled: true
   replicaLabel:
