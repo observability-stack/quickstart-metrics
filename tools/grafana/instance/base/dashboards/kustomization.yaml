@@ -1,0 +1,20 @@
+resources:
+  - generated/json/Observability/Ingress/ingress.yaml
+  - generated/json/Logs/Logs/pod-logs.yaml
+  - generated/json/Thanos/Observability/jaeger.yaml
+  - generated/json/Thanos/Observability/alertmanager.yaml
+  - generated/json/Thanos/Observability/opentelemetry.yaml
+  - generated/json/Thanos/Observability/thanos.yaml
+  - generated/json/Thanos/Observability/prometheus.yaml
+  - generated/json/Thanos/Observability/logging-health.yaml
+  - generated/json/Thanos/Workloads/node-exporter-full.yaml
+  - generated/json/Thanos/Workloads/workload-resources.yaml
+  - generated/json/Thanos/Workloads/pod-metrics.yaml
+  - generated/json/Thanos/Workloads/cluster-workloads.yaml
+  - generated/json/Thanos/Kubernetes/controller-manager.yaml
+  - generated/json/Thanos/Kubernetes/api-server.yaml
+  - generated/json/Thanos/Kubernetes/kube-proxy.yaml
+  - generated/json/Thanos/Kubernetes/kubelet.yaml
+  - generated/json/Thanos/Kubernetes/etcd.yaml
+  - generated/json/Thanos/Kubernetes/scheduler.yaml
+  - generated/json/Thanos/Kubernetes/coredns.yaml
