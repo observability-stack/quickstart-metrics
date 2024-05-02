@@ -1,4 +1,4 @@
-clusterDomain: kubernetes.local # this is kubernetes.local by default. if you changed the domain name during the cluster deploy, set this field to match that.
+clusterDomain: cluster.local # this is cluster.local by default. if you changed the domain name during the cluster deploy, set this field to match that.
 objstoreConfig: |-
   type: s3
   config:
