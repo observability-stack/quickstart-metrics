@@ -11023,13 +11023,13 @@ automountServiceAccountToken: true
 kind: ServiceAccount
 metadata:
   name: grafana-operator-controller-manager
-  namespace: grafana
+  namespace: dashboards
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: grafana-operator-permissions
-  namespace: grafana
+  namespace: dashboards
 rules:
 - apiGroups:
   - ""
@@ -11259,7 +11259,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: grafana-operator-permissions
-  namespace: grafana
+  namespace: dashboards
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -11267,7 +11267,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: grafana-operator-controller-manager
-  namespace: grafana
+  namespace: dashboards
 ---
 apiVersion: v1
 kind: Service
