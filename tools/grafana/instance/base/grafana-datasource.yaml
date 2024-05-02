@@ -1,0 +1,18 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: monitoring-thanos
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  datasource:
+    name: Thanos
+    type: prometheus
+    access: proxy
+    url: "http://thanos-monitoring-query-frontend.thanos-system.svc:9090"
+    isDefault: true
+    jsonData:
+      "tlsSkipVerify": false
+      "timeInterval": "30s" # solves dashboards not showing correctly. See https://github.com# solves dashboards not showing correctly. See https://github.com/rfmoz/grafana-dashboards/issues/72#issuecomment-880484961/rfmoz/grafana-dashboards/issues/72#issuecomment-880484961
+    editable: true

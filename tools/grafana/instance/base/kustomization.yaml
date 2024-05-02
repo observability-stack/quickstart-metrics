@@ -1,0 +1,4 @@
+resources:
+  - grafana.yaml
+  - grafana-datasource.yaml
+  - dashboards

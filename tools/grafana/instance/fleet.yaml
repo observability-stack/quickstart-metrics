@@ -1,0 +1,3 @@
+defaultNamespace: dashboards
+kustomize:
+  dir: base
