@@ -10,7 +10,7 @@ spec:
     name: Thanos
     type: prometheus
     access: proxy
-    url: "http://thanos-query-frontend.thanos-system.svc:9090"
+    url: "http://thanos-query-frontend.metrics.svc:9090"
     isDefault: true
     jsonData:
       "tlsSkipVerify": false
