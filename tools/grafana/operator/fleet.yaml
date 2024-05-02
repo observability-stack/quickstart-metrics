@@ -2,5 +2,5 @@ defaultNamespace: dashboards
 helm:
   releaseName: grafana-operator
   chart: "grafana-operator"
-  repo: "ghcr.io/grafana/helm-charts/grafana-operator"
+  repo: "oci://ghcr.io/grafana/helm-charts/grafana-operator"
   version: "v5.8.1"
