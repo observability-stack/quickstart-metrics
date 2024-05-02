@@ -66,6 +66,6 @@ metrics:
   enabled: true # enable for thanos metrics monitoring.
   serviceMonitor:
     enabled: true # serviceMonitor for Prometheus
-    namespace: "thanos-system" # for rancher-monitoring prometheus deployments, you can use cattle-monitoring-system namespace
+    namespace: "metrics" # for rancher-monitoring prometheus deployments, you can use cattle-monitoring-system namespace
 networkPolicy:
   enabled: false
