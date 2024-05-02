@@ -1,4 +1,4 @@
-defaultNamespace: thanos-monitoring
+defaultNamespace: metrics
 helm:
   releaseName: prometheus-monitoring
   chart: "kube-prometheus-stack"

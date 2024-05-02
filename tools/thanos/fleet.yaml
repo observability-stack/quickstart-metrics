@@ -1,4 +1,4 @@
-defaultNamespace: thanos-system # Observability stack uses thanos-system as the default namespace.
+defaultNamespace: metrics # Observability stack uses thanos-system as the default namespace.
 helm:
   releaseName: thanos
   repo: "https://charts.bitnami.com/bitnami"

@@ -1,5 +1,5 @@
 nameOverride: prometheus-monitoring
-namespaceOverride: thanos-monitoring
+namespaceOverride: metrics
 global:
   rbac:
     create: true
