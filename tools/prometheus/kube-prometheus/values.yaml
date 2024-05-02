@@ -1,5 +1,3 @@
-nameOverride: prometheus-monitoring
-namespaceOverride: metrics
 global:
   rbac:
     create: true
