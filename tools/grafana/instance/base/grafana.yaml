@@ -5,20 +5,6 @@ metadata:
   labels:
     dashboards: "grafana"
 spec:
-  client:
-    preferIngress: true
-  ingress:
-    spec:
-      rules:
-        - http:
-            paths:
-              - path: /
-                pathType: Prefix
-                backend:
-                  service:
-                    name: grafana-service
-                    port:
-                      number: 3000
   config:
     log:
       mode: "console"
@@ -27,4 +13,3 @@ spec:
     security:
       admin_user: root
       admin_password: secret
-
