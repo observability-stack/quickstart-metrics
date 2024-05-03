@@ -1,0 +1,18 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: observer-metrics
+  namespace: fleet-default
+  labels:
+    component: metrics
+    role: observer
+spec:
+  repo: https://github.com/observability-stack/quickstart-metrics.git
+  branch: main # main by default
+  paths:
+    - tools/prometheus/kube-prometheus
+    - tools/thanos
+    - tools/grafana/operator
+    - tools/grafana/instance
+  targets:
+    - clusterGroup: observer-clusters

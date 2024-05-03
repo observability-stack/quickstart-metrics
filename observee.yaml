@@ -1,0 +1,15 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: observee-metrics
+  namespace: fleet-default
+  labels:
+    component: metrics
+    role: observee
+spec:
+  repo: https://github.com/observability-stack/quickstart-metrics.git
+  branch: main # main by default
+  paths:
+    - tools/prometheus/kube-prometheus
+  targets:
+    - clusterGroup: observee-clusters
