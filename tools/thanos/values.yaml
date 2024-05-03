@@ -20,8 +20,8 @@ minio:
       api: 9000
       console: 9001
     nodePorts:
-      api: "39000"
-      console: "39001"
+      api: "30800"
+      console: "30801"
 query:  
   enabled: true
   replicaLabel:
