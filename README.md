@@ -1,9 +1,10 @@
 # Observability Stack Quickstart -  Metrics 
 
+Observability Stack Quickstart -  Metrics uses [Thanos Bitnami Helm Chart](https://github.com/bitnami/charts/tree/main/bitnami/thanos/) with integrated MinIO Object Storage, in memory storage for Grafana and local Prometheus for storing local metrics data across both `observee` and `observer` clusters. 
+
 ## Metrics Tools: Thanos
 Thanos is used within the Observability Stack for the long-term storage and centralization of Prometheus metrics data. It relies on the [Thanos Bitnami Helm Chart](https://github.com/bitnami/charts/tree/main/bitnami/thanos/).
 
-Observability Stack Quickstart -  Metrics  uses integrated MinIO object storage for Thanos storage 
 ### Quickstart
 The Observability Stack recommends creating a Kubernetes secret named "thanos-objectstorage" for Thanos S3 connection details. This secret should then be mounted using the `existingObjstoreSecret` field in the Helm chart values, rather than passing the values directly to the Helm chart or as an argument.
 
