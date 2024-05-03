@@ -27,16 +27,7 @@ query:
   replicaLabel:
     - "prometheus_replica"
     - "rule_replica"
-  extraVolumes:
-    - name: store-config
-      configMap:
-        name: thanos-query-config
-  extraVolumeMounts:
-    - name: store-config
-      mountPath: /etc/thanos/stores
-      readOnly: true
-  extraArgs:
-    store.sd-files: /etc/thanos/stores/stores.txt
+  existingSDConfigmap: "thanos-query-config"
 #  dnsDiscovery:
 #    sidecarsService: "prometheus-operated"
 #    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)  
