@@ -27,9 +27,19 @@ query:
   replicaLabel:
     - "prometheus_replica"
     - "rule_replica"
-  dnsDiscovery:
-    sidecarsService: "prometheus-operated"
-    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)
+  extraVolumes:
+    - name: store-config
+      configMap:
+        name: thanos-query-config
+  extraVolumeMounts:
+    - name: store-config
+      mountPath: /etc/thanos/stores
+      readOnly: true
+  extraArgs:
+    store.sd-files: /etc/thanos/stores/stores.txt
+#  dnsDiscovery:
+#    sidecarsService: "prometheus-operated"
+#    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)  
   nodeSelector: "kubernetes.io/os: linux"
   serviceAccount:
     create: true
