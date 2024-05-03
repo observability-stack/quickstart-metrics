@@ -14,7 +14,15 @@ minio:
     rootUser: admin
   defaultBuckets: thanos
   monitoringBuckets: thanos
-query:
+  service:
+    type: NodePort
+    ports:
+      api: 9000
+      console: 9001
+    nodePorts:
+      api: "9000"
+      console: "9001"
+query:  
   enabled: true
   replicaLabel:
     - "prometheus_replica"
