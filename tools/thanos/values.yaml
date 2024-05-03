@@ -24,7 +24,8 @@ minio:
       console: "30801"
 query:  
   enabled: true
-  dnsDiscovery: false
+  dnsDiscovery: 
+    enabled: false
   replicaLabel:
     - "prometheus_replica"
     - "rule_replica"
