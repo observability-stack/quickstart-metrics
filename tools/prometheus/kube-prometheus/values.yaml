@@ -15,3 +15,20 @@ prometheus:
       objectStorageConfig:
         key: objstore.yml
         name: thanos-objstore-secret
+  thanosService:
+    enabled: true
+    annotations: {}
+    labels: {}
+    type: NodePort
+    ## gRPC port config
+    portName: grpc
+    port: 10901
+    targetPort: "grpc"
+    ## HTTP port config (for metrics)
+    httpPortName: http
+    httpPort: 10902
+    targetHttpPort: "http"
+    ## Port to expose on each node, if service type is NodePort
+    ##
+    nodePort: 30901
+    httpNodePort: 30902
