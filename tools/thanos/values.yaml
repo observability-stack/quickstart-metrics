@@ -18,21 +18,18 @@ minio:
     type: NodePort
     ports:
       api: 9000
-      console: 9001
     nodePorts:
-      api: "30800"
-      console: "30801"
+      api: "30900"
 query:  
   enabled: true
   dnsDiscovery: 
     enabled: false
+#    sidecarsService: "prometheus-operated"
+#    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)  
   replicaLabel:
     - "prometheus_replica"
     - "rule_replica"
   existingSDConfigmap: "thanos-query-config"
-#  dnsDiscovery:
-#    sidecarsService: "prometheus-operated"
-#    sidecarsNamespace: "metrics"  # the namespace of the prometheus deployment. (this is cattle-monitoring-system for rancher-monitoring operator)  
   nodeSelector: "kubernetes.io/os: linux"
   serviceAccount:
     create: true
